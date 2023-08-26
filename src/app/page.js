@@ -2,13 +2,15 @@
 import React, { useContext } from "react";
 import { ChatAppContext } from "../../Context/ChatAppContext";
 import { Filter, Friend } from "../../Components/index";
+import { NavBar } from "../../Components/index";
 const page = () => {
   const {} = useContext(ChatAppContext);
   return (
-    <div>
+    <>
+      <NavBar />
       <Filter />
       <Friend />
-    </div>
+    </>
   );
 };
 

@@ -1,6 +1,4 @@
-"use client";
 import { ChatAppProvider } from "../../Context/ChatAppContext";
-import { NavBar } from "../../Components/index";
 import "./globals.css";
 import { Inter } from "next/font/google";
 
@@ -15,10 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <ChatAppProvider>
       <html lang="en">
-        <body className={inter.className}>
-          <NavBar />
-          {children}
-        </body>
+        <body className={inter.className}>{children}</body>
       </html>
     </ChatAppProvider>
   );
