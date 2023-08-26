@@ -1,9 +1,9 @@
 import { ethers } from "ethers";
-import { Web3Modal } from "web3modal";
+import Web3Modal from "web3modal";
 
 import { ChatAppAddress, ChatAppABI } from "../Context/constants";
 
-export const ChechIfWalletConnected = async () => {
+export const checkIfWalletConnected = async () => {
   try {
     if (!window.ethereum) return console.log("Install MetaMAsk");
     const accounts = await window.ethereum.request({
@@ -30,7 +30,7 @@ export const connectWallet = async () => {
 };
 
 const fetchContract = (signerOrProvider) =>
-  new ethers.Contract(ChatAppABI, ChatAppAddress, signerOrProvider);
+  new ethers.Contract(ChatAppAddress, ChatAppABI, signerOrProvider);
 
 export const connectingWithcontract = async () => {
   try {
@@ -45,7 +45,7 @@ export const connectingWithcontract = async () => {
   }
 };
 
-export const convertTime = () => {
+export const convertTime = (time) => {
   const newTime = new Date(time.toNumber());
   const realTime =
     newTime.getHours() +

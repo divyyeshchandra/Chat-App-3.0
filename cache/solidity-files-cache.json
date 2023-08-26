@@ -1,0 +1,40 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "C:\\Users\\aryaa\\OneDrive\\Desktop\\chatapp-3.0\\Chat-App-3.0\\contracts\\ChatApp.sol": {
+      "lastModificationDate": 1692994906632,
+      "contentHash": "e1e38110d295fb69443acdce272fdcfd",
+      "sourceName": "contracts/ChatApp.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.9"
+      ],
+      "artifacts": [
+        "ChatApp"
+      ]
+    }
+  }
+}

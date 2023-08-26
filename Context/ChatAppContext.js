@@ -39,7 +39,7 @@ export const ChatAppProvider = ({ children }) => {
       const userList = await contract.getAllAppUser();
       setuserLists(userList);
     } catch (error) {
-      setError("Please installand connect your wallet ");
+      console.log(error);
     }
   };
 
@@ -53,28 +53,30 @@ export const ChatAppProvider = ({ children }) => {
       const read = await contract.readMessage(friendAddress);
       setfriendMsg(read);
     } catch (error) {
-      setError("Currently you have no message");
+      console.log("Please reload and try again");
     }
   };
 
   const createAccount = async ({ name, accountAddress }) => {
     try {
-      if (name || accountAddress)
-        return setError("Name and Account address, cannot be emoty");
+      console.log(name, accountAddress);
+      // if (name || accountAddress)
+      //   return setError("Name and Account address, cannot be emoty");
       const contract = await connectingWithcontract();
-      const getCreatedUser = await contract.creatAccount(name);
+      const getCreatedUser = await contract.createAccount(name);
       setloading(true);
       await getCreatedUser.wait();
       setloading(false);
       window.location.reload();
     } catch (error) {
-      setError("Error while creating your account please reload browser");
+      console.log("Please reload and try again");
     }
   };
 
-  const addFriend = async ({ name, accountAddress }) => {
+  const addFriends = async ({ name, accountAddress }) => {
     try {
-      if (name || accountAddress) return setError("Please provide");
+      console.log(name, accountAddress);
+      // if (name || accountAddress) return setError("Please provide");
       const contract = await connectingWithcontract();
       const addMyFriend = await contract.addFriend(accountAddress, name);
       setloading(true);
@@ -83,21 +85,22 @@ export const ChatAppProvider = ({ children }) => {
       router.push("/");
       window.location.reload();
     } catch (error) {
-      setError("Something went wrong while adding friends,try again");
+      console.log("Please reload and try again");
     }
   };
 
-  const sendMEssage = async ({ msg, address }) => {
+  const sendMessage = async ({ msg, address }) => {
     try {
-      if (msg || address) return setError("Please type your message");
+      console.log(msg, address);
+      // if (msg || address) return setError("Please type your message");
       const contract = await connectingWithcontract();
-      const addMessage = await contract.sendMEssage(address, msg);
+      const addMessage = await contract.sendMessage(address, msg);
       setloading(true);
       await addMessage.wait();
       setloading(false);
       window.location.reload();
     } catch (error) {
-      setError("Please reload and try again");
+      console.log("Please reload and try again");
     }
   };
 
@@ -113,8 +116,9 @@ export const ChatAppProvider = ({ children }) => {
       value={{
         readMessage,
         createAccount,
-        addFriend,
-        sendMEssage,
+        addFriends,
+        checkIfWalletConnected,
+        sendMessage,
         readUser,
         account,
         userName,
